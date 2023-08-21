@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <style>
+        /* 테이블의 모든 칸에 동일한 크기와 정렬 지정 */
+        td { width: 100px; height: 100px; text-align: center; }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <td>1번</td> <td>2번</td> <td>3번</td>
+        </tr>
+        <tr>
+            <td>4번</td> <td>5번</td> <td>6번</td>
+        </tr>
+        <tr>
+            <td>7번</td> <td>8번</td> <td>9번</td>
+        </tr>
+    </table>
+    <script>
+        $("td:eq(4)").css("background","tomato");           // 5번
+        $("td").eq(2).css("background","powderblue");       // 3번
+        $("td:eq(4)").next().css("background","yellow");    // 6번
+        $("td").eq(4).prev().css("background","SlateBlue"); // 4번
+        $("td:eq(4)").parent().css("color","blue");         // td(4)의 부모인 tr이 선택. 4, 5, 6번
+        $("td:eq(4)").parent().next().css("color","red");   // tr의 next이므로 7, 8, 9번
+        $("td:eq(4)").parent().prev().css("color", "MediumSeaGreen");    // 1, 2, 3번
+        $("td:eq(4)").parent().next().children().css("text-decoration", "underline");   // 7, 8, 9
+        $("td:eq(4)").parent().next().children().eq(1).css("font-weight", "bold");   // 8
+        
+    </script>
+</body>
+</html>
